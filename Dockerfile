@@ -3,7 +3,7 @@ FROM openjdk:8u191-jre-alpine3.8
 RUN apk add curl jq
 
 #workspace
-#WORKDIR /target
+WORKDIR /target
 
 #ADD .jar files under target locatioin from host
 #into this image
