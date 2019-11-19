@@ -16,5 +16,6 @@ java -cp "selenium-docker.jar:selenium-docker-tests.jar:libs/*" \
     -DHUB_HOST=$HUB_HOST \
     -Dbrowser=$browser \
     -Denv=$env \
+    -Dhudson.model.DirectoryBrowserSupport.CSP= \
     -Dcucumber.options="$CUCUMBER_OPTIONS" \
     org.junit.runner.JUnitCore test.java.runner.TestRunner
