@@ -34,7 +34,7 @@
     <scripts>
       <![CDATA[
         $(document).ready(function() {
-          
+        
         });
       ]]>
     </scripts>
