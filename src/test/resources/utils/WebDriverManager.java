@@ -139,7 +139,7 @@ public class WebDriverManager {
 	 public void exitOnFail(Scenario scenario) {
 		 if(driver.toString() != null){
 			 getScreenShotOnFail(scenario);
-			 //embedVideo(scenario);
+			 embedVideo(scenario);
 			 //driver.close();
 			 driver.quit();
 		 }
