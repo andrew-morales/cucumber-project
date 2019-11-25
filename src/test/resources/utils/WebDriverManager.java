@@ -16,6 +16,7 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -29,6 +30,7 @@ public class WebDriverManager {
 	 private WebDriver driver;
 	 private WebDriverWait wait;
 	 private ChromeOptions options = new ChromeOptions();
+	 //private FirefoxOptions ffOptions = new FirefoxOptions();
 	 //private static DriverType driverType;
 	 //private static EnvironmentType environmentType;
 	 private static final String CHROME_DRIVER_PROPERTY = "webdriver.chrome.driver";
@@ -79,9 +81,22 @@ public class WebDriverManager {
 		String host = "localhost";
 		DesiredCapabilities dc;
 		
+//		if(System.getProperty("HUB_HOST") != null){
+//			host = System.getProperty("HUB_HOST");
+//		}
+//		//set full grid url
+//		completeUrl = "http://" + host + ":4444/wd/hub";
+		
 		//check for user inputed browser and host
 		if(driverType != null && driverType.equals("FIREFOX")){
 			dc = DesiredCapabilities.firefox();
+//			ffOptions.addArguments("--no-sandbox");
+//			try {
+//				driver = new RemoteWebDriver(new URL(completeUrl), ffOptions);
+//			} catch (MalformedURLException e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			}
 		}
 		else{
 			dc = DesiredCapabilities.chrome();
@@ -89,6 +104,12 @@ public class WebDriverManager {
 			System.setProperty("webdriver.chrome.verboseLogging", "true");
 			options.addArguments("--no-sandbox");
 			dc.setCapability(ChromeOptions.CAPABILITY, options);
+//			try {
+//				driver = new RemoteWebDriver(new URL(completeUrl), options);
+//			} catch (MalformedURLException e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			}
 		}
 		
 		//figure out how this fits new setup
@@ -104,6 +125,7 @@ public class WebDriverManager {
 			//where grid is running is your url
 			//options.addArguments("--no-sandbox");
 			driver = new RemoteWebDriver(new URL(completeUrl), dc);
+			//driver = new RemoteWebDriver(new URL(completeUrl), options);
 		} catch (MalformedURLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -139,7 +161,7 @@ public class WebDriverManager {
 	 public void exitOnFail(Scenario scenario) {
 		 if(driver.toString() != null){
 			 getScreenShotOnFail(scenario);
-			 embedVideo(scenario);
+			 //embedVideo(scenario);
 			 //driver.close();
 			 driver.quit();
 		 }

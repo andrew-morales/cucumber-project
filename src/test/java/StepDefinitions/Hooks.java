@@ -17,14 +17,14 @@ public class Hooks {
 		 testContext = context;
 	 }
 	 
-	 @Before
-	 public void BeforeSteps(Scenario scenario) {
-		 testContext.getRecorderManager().startRecording(scenario);
-	 }
+//	 @Before
+//	 public void BeforeSteps(Scenario scenario) {
+//		 testContext.getRecorderManager().startRecording(scenario);
+//	 }
 	 
 	 @After
 	 public void AfterScenario(Scenario scenario) {
-		 testContext.getRecorderManager().stopRecording();
+		 //testContext.getRecorderManager().stopRecording();
 		 if(scenario.getStatus().toString().equals("PASSED")){
 			 testContext.getWebDriverManager().exitOnPass(scenario); 
 		 }
@@ -37,7 +37,7 @@ public class Hooks {
 	 @AfterStep
 	 public void AfterStep(Scenario scenario){
 		 if(scenario.isFailed()) {
-			 testContext.getRecorderManager().stopRecording();
+			 //testContext.getRecorderManager().stopRecording();
 			 testContext.getWebDriverManager().exitOnFail(scenario);
 		 }
 	 }
