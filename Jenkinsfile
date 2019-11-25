@@ -7,7 +7,6 @@ pipeline {
             steps {
                 //sh
                 sh "mvn clean install -DskipTests"
-                sh "mvn clean"
             }
         }
         stage('Build Image') {
