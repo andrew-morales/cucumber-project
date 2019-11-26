@@ -1,5 +1,6 @@
 package main.PageObjects;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -23,6 +24,7 @@ public class CartPage{
 		 wait.withMessage("Waiting for cart button to be clickable");
 		 //wait.until(ExpectedConditions.elementToBeClickable(btn_Cart)).click();
 		 //btn_Cart.click();
+		 wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector(".cart-button")));
 		 wait.until(ExpectedConditions.refreshed(ExpectedConditions.stalenessOf(btn_Cart)));
 		 btn_Cart.click();
 	 }
