@@ -175,7 +175,7 @@ public class WebDriverManager {
 	 //Delete the test recording if the test passed
 	 //////////////////////////////////////////////
 	 public void exitOnPass(Scenario scenario){
-		 System.out.println("Scenario status is: " + scenario.getStatus().toString());
+		 System.out.println("Scenario name: " + scenario.getName().toString() + " status is: " + scenario.getStatus().toString());
 		 if(driver != null){
 			 if(scenario.getStatus().toString().equalsIgnoreCase("PASSED")){
 				 //driver.close();

@@ -21,8 +21,10 @@ public class CartPage{
 		 	 
 	 public void clickOn_Cart(WebDriverWait wait) {
 		 wait.withMessage("Waiting for cart button to be clickable");
-		 wait.until(ExpectedConditions.elementToBeClickable(btn_Cart)).click();
+		 //wait.until(ExpectedConditions.elementToBeClickable(btn_Cart)).click();
 		 //btn_Cart.click();
+		 wait.until(ExpectedConditions.refreshed(ExpectedConditions.stalenessOf(btn_Cart)));
+		 btn_Cart.click();
 	 }
 		 
 	 public void clickOn_ContinueToCheckout(WebDriverWait wait){
